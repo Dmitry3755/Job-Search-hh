@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sing_in_employees_search_text_view"
+        style="@style/screen_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacer_10"
+        android:text="@string/sing_in_subtitle_employees_search" />
+
+    <TextView
+        android:id="@+id/placement_vacancies_text_view"
+        style="@style/Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacer_16"
+        android:text="@string/sing_in_text_placement_vacancies_and_access_resume_database" />
+
+    <Button
+        android:id="@+id/sign_in_search_employees_button"
+        style="@style/user_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sing_in_button_i_searching_employees" />
+</LinearLayout>

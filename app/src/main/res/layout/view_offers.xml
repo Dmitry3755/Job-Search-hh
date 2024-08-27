@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    style="@style/Container.Small">
+
+    <ImageView
+        android:id="@+id/offers_icon_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_temporary_job"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/offers_description_text_view"
+        style="@style/Title4"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_16"
+        android:text="@string/vacancies_raise_resume"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offers_icon_image_view" />
+
+    <TextView
+        android:id="@+id/offers_button_text_text_view"
+        style="@style/Title4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vacancies_raise"
+        android:visibility="invisible"
+        android:textColor="@color/green"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offers_description_text_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

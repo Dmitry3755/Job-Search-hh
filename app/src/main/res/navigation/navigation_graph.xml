@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/navigation_sign_in">
+
+    <fragment
+        android:id="@+id/navigation_sign_in"
+        android:name="com.example.jobsearch.ui.screens.sign_in.SignInFragment"
+        android:label="fmt_sign_in"
+        tools:layout="@layout/fmt_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_verifyCodeFragment"
+            app:destination="@id/navigation_verify_code" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_verify_code"
+        android:name="com.example.jobsearch.ui.screens.verify_code.VerifyCodeFragment"
+        android:label="fmt_verify_code"
+        tools:layout="@layout/fmt_verify_code" >
+        <action
+            android:id="@+id/action_navigation_verify_code_to_vacanciesFragment"
+            app:destination="@id/vacanciesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vacanciesFragment"
+        android:name="com.example.jobsearch.ui.screens.vacancies.VacanciesFragment"
+        android:label="fmt_vacancies"
+        tools:layout="@layout/fmt_vacancies" />
+</navigation>

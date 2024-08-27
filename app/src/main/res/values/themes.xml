@@ -1,0 +1,108 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.JobSearch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="android:colorBackground">@color/black</item>
+
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+    <style name="ScreenTitle" parent="Title2">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="screen_subtitle" parent="Title3">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="BottomNavigationView.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="Text" parent="ButtonText2">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="android:background">@color/black</item>
+        <item name="itemIconTint">@color/gray4</item>
+        <item name="itemTextColor">@color/gray4</item>
+        <item name="iconTint">@color/blue</item>
+    </style>
+
+    <style name="SystemButton" parent="ButtonText2">
+        <item name="backgroundTint">@color/blue</item>
+        <item name="android:background">@drawable/bg_system_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="SystemButton.Vacancies" parent="ButtonText1">
+        <item name="backgroundTint">@color/blue</item>
+        <item name="android:background">@drawable/bg_system_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="user_button" parent="ButtonText2">
+        <item name="backgroundTint">@color/green</item>
+        <item name="android:background">@drawable/bg_user_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="auth_button" parent="ButtonText2">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="EditText.VerifyCode" parent="EditText">
+        <item name="android:textCursorDrawable">@color/white</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:inputType">number</item>
+        <item name="android:layout_marginRight">@dimen/spacer_8</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textSize">@dimen/text_size_text1</item>
+        <item name="android:hint">*</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/gray3</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:background">@drawable/bg_text_input_edit_text</item>
+    </style>
+
+    <style name="ErrorText" parent="Text1">
+    </style>
+
+    <style name="TextInputEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/bg_text_input_edit_text</item>
+        <item name="android:textSize">@dimen/text_size_text1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/gray4</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="boxStrokeColor">@null</item>
+        <item name="android:drawableLeft">@drawable/ic_responses</item>
+    </style>
+
+    <style name="Container">
+        <item name="android:background">@drawable/bg_view</item>
+        <item name="android:padding">@dimen/spacer_16</item>
+    </style>
+    <style name="Container.Small">
+        <item name="android:background">@drawable/bg_view_small</item>
+        <item name="android:padding">@dimen/spacer_16</item>
+    </style>
+
+</resources>

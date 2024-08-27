@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="corner_radius_50">50dp</dimen>
+    <dimen name="corner_radius_15">15dp</dimen>
+    <dimen name="corner_radius_10">10dp</dimen>
+
+    <dimen name="text_size_title1">22dp</dimen>
+    <dimen name="text_size_title2">20dp</dimen>
+    <dimen name="text_size_title3">16dp</dimen>
+    <dimen name="text_size_title4">14dp</dimen>
+    <dimen name="text_size_text1">14dp</dimen>
+    <dimen name="text_size_button_text1">16dp</dimen>
+    <dimen name="text_size_button_text2">14dp</dimen>
+    <dimen name="text_size_tab_text">10dp</dimen>
+    <dimen name="text_size_number">7dp</dimen>
+
+    <dimen name="spacer_32">32dp</dimen>
+    <dimen name="spacer_24">24dp</dimen>
+    <dimen name="spacer_16">16dp</dimen>
+    <dimen name="spacer_10">10dp</dimen>
+    <dimen name="spacer_8">8dp</dimen>
+
+</resources>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/Container">
+
+    <TextView
+        android:id="@+id/vacancies_watching_it_now_text_view"
+        style="@style/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/vacancies_watching_vacancies_now"
+        android:textColor="@color/green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/vacancies_favorite_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_favourites"
+        app:layout_constraintBottom_toBottomOf="@+id/vacancies_watching_it_now_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/vacancies_watching_it_now_text_view"
+        app:layout_constraintTop_toTopOf="@+id/vacancies_watching_it_now_text_view" />
+
+    <TextView
+        android:id="@+id/vacancies_post_text_view"
+        style="@style/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:text="@string/vacancies_post"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_watching_it_now_text_view" />
+
+    <TextView
+        android:id="@+id/vacancies_salary_text_view"
+        style="@style/Title2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:text="@string/vacancies_salary"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_post_text_view" />
+
+    <TextView
+        android:id="@+id/vacancies_country_text_view"
+        style="@style/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:text="@string/vacancies_country"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_salary_text_view" />
+
+    <TextView
+        android:id="@+id/vacancies_company_text_view"
+        style="@style/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/vacancies_company"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_country_text_view" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacer_8"
+        android:src="@drawable/ic_verification"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/vacancies_company_text_view"
+        app:layout_constraintStart_toEndOf="@+id/vacancies_company_text_view"
+        app:layout_constraintTop_toTopOf="@+id/vacancies_company_text_view" />
+
+    <TextView
+        android:id="@+id/vacancies_experience_text_view"
+        style="@style/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/vacancies_experience"
+        android:textColor="@color/white"
+        android:layout_marginLeft="@dimen/spacer_8"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:src="@drawable/ic_experience"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_company_text_view" />
+
+    <TextView
+        android:id="@+id/vacancies_data_text_view"
+        style="@style/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:text="@string/vacancies_data"
+        android:textColor="@color/gray3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_experience_text_view" />
+
+    <Button
+        android:id="@+id/sign_in_search_employees_button"
+        style="@style/user_button"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/vacancies_respond"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_data_text_view" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

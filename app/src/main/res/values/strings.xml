@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Job Search</string>
+
+    <string name="bottom_nav_search">Поиск</string>
+    <string name="bottom_nav_favourites">Избранное</string>
+    <string name="bottom_nav_responses">Отклики</string>
+    <string name="bottom_nav_messages">Сообщения</string>
+    <string name="bottom_nav_profile">Профиль</string>
+
+    <string name="sing_in_title_log_in_account">Вход в личный кабинет</string>
+    <string name="sing_in_subtitle_job_search">Поиск работы</string>
+    <string name="sing_in_subtitle_employees_search">Поиск сотрудников</string>
+    <string name="sing_in_text_view_hint_email_or_phone_number">Электронная почта или телефон</string>
+    <string name="sing_in_button_continue">Продолжить</string>
+    <string name="sing_in_button_i_searching_employees">Я ищу сотрудников</string>
+    <string name="sing_in_button_continue_with_password">Войти с паролем</string>
+    <string name="sing_in_text_placement_vacancies_and_access_resume_database">Размещение вакансий и доступ к базе резюме</string>
+
+    <string name="enter_code_send_code_on">Отправили код на </string>
+    <string name="enter_code_confirm">Подтвердить</string>
+    <string name="enter_code_text">Напишите его, чтобы подтвердить, что это вы, а не кто-то другой входит в личный кабинет</string>
+
+    <string name="vacancies_key_words">Должность, ключевые слова</string>
+    <string name="vacancies_vacancies_for_you">Вакансии для вас</string>
+    <string name="vacancies_respond">Откликнуться</string>
+    <!--utils-->
+    <string name="vacancies_watching_vacancies_now">Сейчас просматривает 1 человек</string>
+    <string name="vacancies_post">UI/UX Designer</string>
+    <string name="vacancies_salary">1500 – 2000 Br</string>
+    <string name="vacancies_country">Минск</string>
+    <string name="vacancies_company">Мобирикс</string>
+    <string name="vacancies_experience">Опыт от 1 до 3 лет</string>
+    <string name="vacancies_data">Опубликовано 20 февраля</string>
+    <string name="vacancies_a_lot_of_vacancies">Еще 143 вакансии</string>
+    <string name="vacancies_raise_resume">Поднять резюме в поиске</string>
+    <string name="vacancies_raise">Поднять</string>
+
+    <string name="error">Вы ввели неверный e-mail</string>
+
+</resources>
