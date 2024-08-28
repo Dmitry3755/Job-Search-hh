@@ -1,6 +1,7 @@
 package com.example.data.mappers
 
 import com.example.data.entities.VacanciesData
+import com.example.data.utils.formatDate
 import com.example.domain.entities.Vacancies
 
 fun VacanciesData.toVacancies(): Vacancies {
@@ -11,7 +12,7 @@ fun VacanciesData.toVacancies(): Vacancies {
         address = this.address!!.toAddress(),
         company = this.company,
         experience = this.experience!!.toExperience(),
-        publishedDate = this.publishedDate,
+        publishedDate = formatDate(this.publishedDate!!),
         isFavorite = this.isFavorite,
         salary = this.salary!!.toSalary(),
         schedules = this.schedules,

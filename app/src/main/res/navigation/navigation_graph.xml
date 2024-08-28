@@ -28,4 +28,9 @@
         android:name="com.example.jobsearch.ui.screens.vacancies.VacanciesFragment"
         android:label="fmt_vacancies"
         tools:layout="@layout/fmt_vacancies" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.jobsearch.ui.screens.favorites.FavoritesFragment"
+        android:label="fmt_favorites"
+        tools:layout="@layout/fmt_favorites" />
 </navigation>

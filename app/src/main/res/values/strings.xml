@@ -23,6 +23,9 @@
     <string name="vacancies_key_words">Должность, ключевые слова</string>
     <string name="vacancies_vacancies_for_you">Вакансии для вас</string>
     <string name="vacancies_respond">Откликнуться</string>
+    <string name="vacancies_date_publication">Опубликовано</string>
+    <string name="vacancies_another">Еще</string>
+    <string name="vacancies_vacancies">Вакансии</string>
     <!--utils-->
     <string name="vacancies_watching_vacancies_now">Сейчас просматривает 1 человек</string>
     <string name="vacancies_post">UI/UX Designer</string>

@@ -1,5 +1,8 @@
 package com.example.jobsearch.ui.screens.sign_in
 
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,8 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.widget.addTextChangedListener
+import androidx.core.graphics.drawable.toDrawable
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.jobsearch.R
@@ -37,10 +41,8 @@ class SignInFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.let { bind ->
+            buttonContinueNonActive()
             addTextListener()
-            bind.searchJobView.singInContinueButton.setOnClickListener {
-                onClickButtonContinue()
-            }
         }
     }
 
@@ -50,7 +52,10 @@ class SignInFragment : BaseFragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) =
                 appEmailViewModel.value.email.postValue(binding.searchJobView.singInEmailEditText.text.toString())
 
-            override fun afterTextChanged(p0: Editable?) = isErrorEmailValidation(false)
+            override fun afterTextChanged(p0: Editable?) {
+                isErrorEmailValidation(false)
+                onClickButtonContinueActive()
+            }
         })
 
     private fun onClickButtonContinue() =
@@ -64,6 +69,28 @@ class SignInFragment : BaseFragment() {
         Navigation.findNavController(binding.root)
             .navigate(SignInFragmentDirections.actionSignInFragmentToVerifyCodeFragment())
     }
+
+    private fun buttonContinueNonActive() {
+        binding.searchJobView.singInContinueButton.setTextColor(resources.getColor(R.color.gray4))
+        binding.searchJobView.singInContinueButton.setBackgroundResource(R.drawable.bg_system_button_non_active)
+    }
+
+    private fun buttonContinueIsActive() {
+        binding.searchJobView.singInContinueButton.setTextColor(resources.getColor(R.color.white))
+        binding.searchJobView.singInContinueButton.setBackgroundResource(R.drawable.bg_system_button_is_active)
+    }
+
+    private fun onClickButtonContinueActive() =
+        when (binding.searchJobView.singInEmailEditText.text.toString() != "") {
+            true -> {
+                buttonContinueIsActive()
+                binding.searchJobView.singInContinueButton.setOnClickListener {
+                    onClickButtonContinue()
+                }
+            }
+
+            false -> buttonContinueNonActive()
+        }
 
     private fun isErrorEmailValidation(isError: Boolean) {
         when (isError) {

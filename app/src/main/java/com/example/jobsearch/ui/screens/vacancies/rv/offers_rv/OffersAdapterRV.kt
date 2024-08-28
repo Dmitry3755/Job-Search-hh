@@ -1,11 +1,14 @@
 package com.example.jobsearch.ui.screens.vacancies.rv.offers_rv
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entities.Offers
 import com.example.jobsearch.R
@@ -14,6 +17,8 @@ class OffersAdapterRV(private val offers: List<Offers>) :
     RecyclerView.Adapter<OffersAdapterRV.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val context = view.context
+        val offersConstraintLayout : ConstraintLayout = view.findViewById(R.id.offers_constraint_layout)
         val offersIconImageView: ImageView =
             view.findViewById(R.id.offers_icon_image_view)
         val offersDescriptionTextView : TextView = view.findViewById(R.id.offers_description_text_view)
@@ -29,6 +34,11 @@ class OffersAdapterRV(private val offers: List<Offers>) :
 
     @SuppressLint("SetTextI18n", "ResourceAsColor")
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        viewHolder.offersConstraintLayout.setOnClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse(offers[position].link)
+            viewHolder.context.startActivity(openURL)
+        }
         when (offers[position].id) {
             "near_vacancies" -> viewHolder.offersIconImageView.setImageResource(R.drawable.ic_near_vacancies)
             "level_up_resume" -> viewHolder.offersIconImageView.setImageResource(R.drawable.ic_level_up_resume)

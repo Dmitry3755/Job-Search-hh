@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -15,14 +16,21 @@ import com.example.domain.entities.Vacancies
 import com.example.jobsearch.R
 import com.example.jobsearch.ui.screens.vacancies.rv.offers_rv.OffersAdapterRV
 import com.example.jobsearch.ui.screens.vacancies.rv.offers_rv.SpaceOffersDecoration
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlin.contracts.contract
 
-class VacanciesAdapterRV(private val vacancies: List<Vacancies>, private val offers: List<Offers>) :
+class VacanciesAdapterRV(
+    private val vacancies: List<Vacancies>,
+    private val offers: List<Offers>?
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val HEADER_POSITION = 0
     private val ITEM_POSITION = 1
+    private val FOOTER_POSITION = 2
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val context = view.context
         val vacanciesWatchingItNowTextView: TextView =
             view.findViewById(R.id.vacancies_watching_it_now_text_view)
         val vacanciesPostTextView: TextView = view.findViewById(R.id.vacancies_post_text_view)
@@ -43,23 +51,37 @@ class VacanciesAdapterRV(private val vacancies: List<Vacancies>, private val off
             view.findViewById(R.id.vacancies_offers_recycler_view)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position == 0) {
-            HEADER_POSITION
-        } else {
-            ITEM_POSITION
-        }
+    class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val context = view.context
+        val vacanciesALotOfButton: Button = view.findViewById(R.id.vacancies_a_lot_of_button)
     }
 
+    override fun getItemViewType(position: Int): Int =
+        when (position) {
+            0 -> HEADER_POSITION
+            vacancies.size + 1 -> FOOTER_POSITION
+            else -> ITEM_POSITION
+        }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == HEADER_POSITION) {
-            val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.view_recycler_view_header, viewGroup, false)
-            HeaderViewHolder(view)
-        } else {
-            val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.view_vacancy, viewGroup, false)
-            ItemViewHolder(view)
+        return when (viewType) {
+            HEADER_POSITION -> {
+                val view = LayoutInflater.from(viewGroup.context)
+                    .inflate(R.layout.view_recycler_view_header, viewGroup, false)
+                HeaderViewHolder(view)
+            }
+
+            FOOTER_POSITION -> {
+                val view = LayoutInflater.from(viewGroup.context)
+                    .inflate(R.layout.view_recycler_view_footer, viewGroup, false)
+                FooterViewHolder(view)
+            }
+
+            else -> {
+                val view = LayoutInflater.from(viewGroup.context)
+                    .inflate(R.layout.view_vacancy, viewGroup, false)
+                ItemViewHolder(view)
+            }
         }
     }
 
@@ -74,14 +96,19 @@ class VacanciesAdapterRV(private val vacancies: List<Vacancies>, private val off
             holder.vacanciesCompanyTextView.text = vacancies[itemPosition].company
             holder.vacanciesExperienceTextView.text =
                 vacancies[itemPosition].experience!!.previewText ?: ""
-            holder.vacanciesDataTextView.text = vacancies[itemPosition].publishedDate
+            holder.vacanciesDataTextView.text =
+                holder.context.getString(R.string.vacancies_date_publication) + " " + vacancies[itemPosition].publishedDate
             if (vacancies[itemPosition].isFavorite!!) {
                 holder.vacanciesFavoriteImageView.setImageResource(R.drawable.ic_favourites_true)
             }
         } else if (holder is HeaderViewHolder) {
             holder.headerConstraintLayout
             holder.headerRecyclerView.layoutManager =
-                LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
+                LinearLayoutManager(
+                    holder.itemView.context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
             holder.headerRecyclerView.addItemDecoration(
                 SpaceOffersDecoration(
                     holder.itemView.resources.getDimensionPixelSize(
@@ -89,12 +116,22 @@ class VacanciesAdapterRV(private val vacancies: List<Vacancies>, private val off
                     )
                 )
             )
-            val offersAdapterRV = OffersAdapterRV(offers)
-            holder.headerRecyclerView.adapter = offersAdapterRV
+            if (!offers.isNullOrEmpty()) {
+                val offersAdapterRV = OffersAdapterRV(offers)
+                holder.headerRecyclerView.adapter = offersAdapterRV
+            }
+        } else if (holder is FooterViewHolder) {
+            val params = holder.itemView.layoutParams as RecyclerView.LayoutParams
+            params.bottomMargin = 150
+            holder.itemView.layoutParams = params
+            holder.vacanciesALotOfButton.text =
+                holder.context.getString(R.string.vacancies_another) + " " + (vacancies.size - 3) + " " + holder.context.getString(
+                    R.string.vacancies_vacancies
+                )
         }
     }
 
-    override fun getItemCount() = vacancies.size + 1
+    override fun getItemCount() = vacancies.size + 2
 
     private fun lookingPeopleCount(position: Int): String {
         return if (vacancies[position].lookingNumber != null) {
@@ -103,5 +140,4 @@ class VacanciesAdapterRV(private val vacancies: List<Vacancies>, private val off
             ""
         }
     }
-
 }

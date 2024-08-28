@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginBottom
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jobsearch.R
 import com.example.jobsearch.databinding.FmtVacanciesBinding
+import com.example.jobsearch.databinding.ViewRecyclerViewFooterBinding
 import com.example.jobsearch.ui.base.BaseFragment
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.SpaceVacanciesDecoration
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.VacanciesAdapterRV
@@ -24,6 +27,7 @@ class VacanciesFragment : BaseFragment() {
         daggerViewModelFactory
     }
     private lateinit var binding: FmtVacanciesBinding
+    private lateinit var bindingFooterRV: ViewRecyclerViewFooterBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,6 +38,9 @@ class VacanciesFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        ViewRecyclerViewFooterBinding.inflate(inflater, container, false).also {
+            bindingFooterRV = it
+        }
         return FmtVacanciesBinding.inflate(inflater, container, false).also {
             binding = it
         }.root
@@ -49,6 +56,12 @@ class VacanciesFragment : BaseFragment() {
                 bind.vacanciesRecyclerView.adapter =
                     dataViewModel.data.value?.let { VacanciesAdapterRV(it.vacancies, it.offers) }!!
             }
+        }
+    }
+
+    private fun initializeButton() {
+        bindingFooterRV.vacanciesALotOfButton.setOnClickListener {
+
         }
     }
 

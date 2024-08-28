@@ -66,6 +66,10 @@ dependencies {
     //Databinding
     implementation(libs.databinding.runtime)
 
+    //Navigation
+    implementation(libs.navigation.ui.ktx)
+    implementation(libs.navigation.fragment.ktx)
+
     //Layers
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))
