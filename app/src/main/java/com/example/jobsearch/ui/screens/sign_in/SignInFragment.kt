@@ -1,8 +1,5 @@
 package com.example.jobsearch.ui.screens.sign_in
 
-import android.annotation.SuppressLint
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,21 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.toDrawable
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.jobsearch.R
 import com.example.jobsearch.databinding.FmtSignInBinding
-import com.example.jobsearch.ui.screens.view_models.AppEmailViewModel
 import com.example.jobsearch.ui.base.BaseFragment
-import javax.inject.Inject
+import com.example.jobsearch.ui.screens.view_models.AppEmailViewModel
 
 class SignInFragment : BaseFragment() {
 
-    @Inject
-    lateinit var daggerViewModelFactory: ViewModelProvider.Factory
     private lateinit var appEmailViewModel: Lazy<AppEmailViewModel>
     private lateinit var binding: FmtSignInBinding
 

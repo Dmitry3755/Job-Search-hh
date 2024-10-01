@@ -1,6 +1,7 @@
 package com.example.jobsearch.di.module
 
 import com.example.jobsearch.di.scope.FragmentScope
+import com.example.jobsearch.ui.screens.favorites.FavoritesFragment
 import com.example.jobsearch.ui.screens.sign_in.SignInFragment
 import com.example.jobsearch.ui.screens.vacancies.VacanciesFragment
 import com.example.jobsearch.ui.screens.verify_code.VerifyCodeFragment
@@ -22,5 +23,7 @@ interface FragmentsModule {
     @ContributesAndroidInjector
     fun provideVerifyCodeFragment() : VerifyCodeFragment
 
-
+    @FragmentScope
+    @ContributesAndroidInjector
+    fun provideFavoritesFragment() : FavoritesFragment
 }

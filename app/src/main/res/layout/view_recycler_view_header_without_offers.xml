@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/header_recycler_view"
+    android:id="@+id/header_recycler_view_without_offers"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,10 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacer_10"
         android:layout_marginEnd="@dimen/spacer_10"
-        android:autofillHints=""
-        android:drawableStart="@drawable/ic_search"
-        android:hint="@string/vacancies_key_words"
-        android:inputType="none"
+        android:drawableStart="@drawable/ic_left_arrow"
+        android:drawablePadding="@dimen/spacer_8"
+        android:hint="@string/position_suitable_vacancies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,42 +34,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vacancies_search_edit_text" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/vacancies_offers_recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/spacer_16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.45"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vacancies_search_edit_text">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
     <TextView
-        android:id="@+id/textView"
-        style="@style/ScreenTitle"
+        android:id="@+id/count_vacancies_text_view"
+        style="@style/OrdinaryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacer_32"
-        android:text="@string/vacancies_vacancies_for_you"
-        app:layout_constraintStart_toStartOf="@+id/vacancies_offers_recycler_view"
-        app:layout_constraintTop_toBottomOf="@+id/vacancies_offers_recycler_view" />
+        android:layout_marginVertical="@dimen/spacer_16"
+        android:text="@string/count_vacancies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_search_edit_text"
+        app:layout_constraintVertical_bias="0.5" />
 
-
-<!--
-    <Button
-        android:id="@+id/button"
-        style="@style/SystemButton.Vacancies"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/filter_text_view"
+        style="@style/FilterText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vacancies_a_lot_of_vacancies"
-        android:layout_marginBottom="@dimen/spacer_8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
--->
+        android:layout_marginVertical="@dimen/spacer_16"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/spacer_8"
+        android:text="@string/filter_vacancies"
+        app:layout_constraintBottom_toBottomOf="@+id/sort_arrow"
+        app:layout_constraintEnd_toStartOf="@+id/sort_arrow"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_search_edit_text"
+        app:layout_constraintVertical_bias="0.1" />
 
+    <ImageView
+        android:id="@+id/sort_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacer_16"
+        android:src="@drawable/ic_accordance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

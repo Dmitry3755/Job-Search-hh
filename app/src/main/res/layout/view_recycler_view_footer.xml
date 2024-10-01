@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/vacancies_a_lot_of_button"
+        android:id="@+id/lot_of_vacancies_button"
         style="@style/SystemButton.Vacancies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

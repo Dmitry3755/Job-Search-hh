@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header_recycler_view_without_offers"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/vacancies_search_edit_text"
+        style="@style/TextInputEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_10"
+        android:layout_marginEnd="@dimen/spacer_10"
+        android:autofillHints=""
+        android:drawableStart="@drawable/ic_search"
+        android:hint="@string/vacancies_key_words"
+        android:inputType="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="@style/EditText"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@+id/vacancies_search_edit_text"
+        app:layout_constraintDimensionRatio=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vacancies_search_edit_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vacancies_offers_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacer_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_search_edit_text">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/ScreenTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_32"
+        android:text="@string/vacancies_vacancies_for_you"
+        app:layout_constraintStart_toStartOf="@+id/vacancies_offers_recycler_view"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_offers_recycler_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

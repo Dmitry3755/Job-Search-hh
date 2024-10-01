@@ -8,19 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
-import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.jobsearch.R
 import com.example.jobsearch.databinding.FmtVerifyCodeBinding
 import com.example.jobsearch.ui.base.BaseFragment
 import com.example.jobsearch.ui.screens.view_models.AppEmailViewModel
-import javax.inject.Inject
 
 class VerifyCodeFragment : BaseFragment() {
 
-    @Inject
-    lateinit var daggerViewModelFactory: ViewModelProvider.Factory
     private lateinit var appEmailViewModel: Lazy<AppEmailViewModel>
     private lateinit var binding: FmtVerifyCodeBinding
     private var codeList = arrayOf("", "", "", "")

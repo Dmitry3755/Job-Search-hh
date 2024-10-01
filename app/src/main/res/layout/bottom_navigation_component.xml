@@ -27,10 +27,9 @@
                 android:id="@+id/nav_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/black"
                 app:menu="@menu/nav_menu"
-                style="@style/BottomNavigationView"
-                app:itemActiveIndicatorStyle="@style/BottomNavigationView.Indicator" />
+                app:itemActiveIndicatorStyle="@style/BottomNavigationView.Indicator"
+                style="@style/BottomNavigationView" />
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 

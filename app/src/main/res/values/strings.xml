@@ -37,6 +37,9 @@
     <string name="vacancies_a_lot_of_vacancies">Еще 143 вакансии</string>
     <string name="vacancies_raise_resume">Поднять резюме в поиске</string>
     <string name="vacancies_raise">Поднять</string>
+    <string name="count_vacancies">1 вакансия</string>
+    <string name="filter_vacancies">По соответствию</string>
+    <string name="position_suitable_vacancies">Должность по подходящим вакансиям</string>
 
     <string name="error">Вы ввели неверный e-mail</string>
 

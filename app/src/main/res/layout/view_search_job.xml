@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/sign_in_search_job_text_view"
-        style="@style/screen_subtitle"
+        style="@style/ScreenSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacer_24"

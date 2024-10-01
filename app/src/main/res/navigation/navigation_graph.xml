@@ -21,15 +21,15 @@
         tools:layout="@layout/fmt_verify_code" >
         <action
             android:id="@+id/action_navigation_verify_code_to_vacanciesFragment"
-            app:destination="@id/vacanciesFragment" />
+            app:destination="@id/vacancies" />
     </fragment>
     <fragment
-        android:id="@+id/vacanciesFragment"
+        android:id="@+id/vacancies"
         android:name="com.example.jobsearch.ui.screens.vacancies.VacanciesFragment"
         android:label="fmt_vacancies"
         tools:layout="@layout/fmt_vacancies" />
     <fragment
-        android:id="@+id/favoritesFragment"
+        android:id="@+id/favorites_vacancies"
         android:name="com.example.jobsearch.ui.screens.favorites.FavoritesFragment"
         android:label="fmt_favorites"
         tools:layout="@layout/fmt_favorites" />
