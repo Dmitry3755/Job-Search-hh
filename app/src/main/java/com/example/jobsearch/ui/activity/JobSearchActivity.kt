@@ -9,12 +9,15 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.jobsearch.R
 import com.example.jobsearch.databinding.ActJobSearchLayoutBinding
 import com.example.jobsearch.ui.nav_view.NavigationViewConfig
-import com.example.jobsearch.ui.screens.view_models.AppEmailViewModel
+import com.example.jobsearch.view_models.AppEmailViewModel
+import com.example.jobsearch.utils.NetworkMonitor
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class JobSearchActivity : DaggerAppCompatActivity() {
 
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
     @Inject
     lateinit var daggerViewModelFactory: ViewModelProvider.Factory
     private val appEmailViewModel by viewModels<AppEmailViewModel> {
@@ -29,6 +32,12 @@ class JobSearchActivity : DaggerAppCompatActivity() {
         binding = ActJobSearchLayoutBinding.inflate(layoutInflater)
         navigationInitialize()
         setContentView(binding.root)
+        networkMonitor.registerNetworkCallback()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        networkMonitor.unregisterNetworkCallback()
     }
 
     private fun navigationInitialize() {

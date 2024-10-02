@@ -1,6 +1,5 @@
 package com.example.jobsearch.di.application
 
-import android.app.Application
 import com.example.jobsearch.di.components.AppComponent
 import com.example.jobsearch.di.components.DaggerAppComponent
 import dagger.android.AndroidInjector
@@ -16,7 +15,7 @@ class JobSearchApplication : DaggerApplication() {
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        appComponent = DaggerAppComponent.builder().build()
+        appComponent = DaggerAppComponent.builder().application(this).build()
         return appComponent
     }
 }

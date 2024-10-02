@@ -10,7 +10,8 @@ import com.example.domain.entities.Vacancies
 import com.example.jobsearch.R
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.VacanciesAdapterRV
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.VacancyDiffCallback
-import com.example.jobsearch.ui.screens.view_models.VacanciesViewModel
+import com.example.jobsearch.view_models.VacanciesViewModel
+import com.example.jobsearch.utils.VacancyUtils
 import com.google.android.material.textfield.TextInputEditText
 
 class FilteredHeaderRV(view: View) : RecyclerView.ViewHolder(view) {
@@ -19,7 +20,7 @@ class FilteredHeaderRV(view: View) : RecyclerView.ViewHolder(view) {
     var view = view
 
     private fun initializeView() {
-        filteredVacanciesView = view.findViewById(R.id.header_recycler_view_without_offers)
+        filteredVacanciesView = view.findViewById(R.id.header_recycler_view_with_offers)
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -32,7 +33,7 @@ class FilteredHeaderRV(view: View) : RecyclerView.ViewHolder(view) {
         initializeView()
         holder.filteredVacanciesView.apply {
             view.findViewById<TextView>(R.id.count_vacancies_text_view).text =
-                "${vacanciesViewModel.vacancies.value!!.size}" + " вакансий"
+                "${vacanciesViewModel.vacancies.value!!.size} ${VacancyUtils.formatVacanciesCount(vacanciesViewModel.vacancies.value!!.size)}"
             vacanciesSearchEditText = view.findViewById(R.id.vacancies_search_edit_text)
         }
         vacanciesSearchEditText.setOnTouchListener { v, event ->

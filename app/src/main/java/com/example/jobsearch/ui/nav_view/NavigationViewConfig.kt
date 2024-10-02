@@ -10,9 +10,11 @@ object NavigationViewConfig {
     lateinit var badge: BadgeDrawable
 
     fun setBadge(context: Context, count: Int) {
-        badge = bottomNavView.getOrCreateBadge(R.id.favorites_vacancies)
-        badge.backgroundColor = context.getColor(R.color.red)
-        badge.number = count
+        if (count > 0) {
+            badge = bottomNavView.getOrCreateBadge(R.id.favorites_vacancies)
+            badge.backgroundColor = context.getColor(R.color.red)
+            badge.number = count
+        }
     }
 }
 

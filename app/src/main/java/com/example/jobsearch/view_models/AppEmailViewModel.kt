@@ -1,4 +1,4 @@
-package com.example.jobsearch.ui.screens.view_models
+package com.example.jobsearch.view_models
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -7,23 +7,36 @@
     tools:context=".ui.screens.favorites.FavoritesFragment">
 
     <TextView
-        android:id="@+id/title_text_view"
+        android:id="@+id/vacancies_title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bottom_nav_favourites"
+        style="@style/ScreenTitle"
+        android:layout_marginTop="@dimen/spacer_32"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/white"
         tools:ignore="MissingConstraints"/>
 
+    <TextView
+        android:id="@+id/count_vacancies_text_view"
+        style="@style/OrdinaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_16"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vacancies_title_text_view" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorites_vacancies_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacer_16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/count_vacancies_text_view"
         app:spanCount="1">
 
     </androidx.recyclerview.widget.RecyclerView>

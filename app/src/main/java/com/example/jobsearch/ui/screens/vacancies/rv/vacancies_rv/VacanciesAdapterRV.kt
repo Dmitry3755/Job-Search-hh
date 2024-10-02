@@ -12,7 +12,8 @@ import com.example.jobsearch.R
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.footer.FooterRV
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.header.FilteredHeaderRV
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.header.OffersHeaderRV
-import com.example.jobsearch.ui.screens.view_models.VacanciesViewModel
+import com.example.jobsearch.view_models.VacanciesViewModel
+import com.example.jobsearch.utils.PeopleUtils
 import com.example.jobsearch.utils.VacancyUtils
 
 class VacanciesAdapterRV(
@@ -103,7 +104,7 @@ class VacanciesAdapterRV(
         val vacancy = vacancies[position]
         holder.apply {
             vacanciesWatchingItNowTextView.text =
-                VacancyUtils.formatWatchingPeopleCount(vacancy.lookingNumber)
+                PeopleUtils.formatWatchingPeopleCount(vacancy.lookingNumber)
             vacanciesPostTextView.text = vacancy.title
             vacanciesSalaryTextView.text =
                 VacancyUtils.formatSalary(vacancy.salary.short, vacancy.salary.full)

@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import com.example.jobsearch.R
 import com.example.jobsearch.databinding.FmtVerifyCodeBinding
 import com.example.jobsearch.ui.base.BaseFragment
-import com.example.jobsearch.ui.screens.view_models.AppEmailViewModel
+import com.example.jobsearch.view_models.AppEmailViewModel
 
 class VerifyCodeFragment : BaseFragment() {
 

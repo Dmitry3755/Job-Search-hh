@@ -5,15 +5,15 @@
     <dimen name="corner_radius_15">15dp</dimen>
     <dimen name="corner_radius_10">10dp</dimen>
 
-    <dimen name="text_size_title1">22dp</dimen>
-    <dimen name="text_size_title2">20dp</dimen>
-    <dimen name="text_size_title3">16dp</dimen>
-    <dimen name="text_size_title4">14dp</dimen>
-    <dimen name="text_size_text1">14dp</dimen>
-    <dimen name="text_size_button_text1">16dp</dimen>
-    <dimen name="text_size_button_text2">14dp</dimen>
-    <dimen name="text_size_tab_text">10dp</dimen>
-    <dimen name="text_size_number">7dp</dimen>
+    <dimen name="text_size_title1">22sp</dimen>
+    <dimen name="text_size_title2">20sp</dimen>
+    <dimen name="text_size_title3">16sp</dimen>
+    <dimen name="text_size_title4">14sp</dimen>
+    <dimen name="text_size_text1">14sp</dimen>
+    <dimen name="text_size_button_text1">16sp</dimen>
+    <dimen name="text_size_button_text2">14sp</dimen>
+    <dimen name="text_size_tab_text">10sp</dimen>
+    <dimen name="text_size_number">7sp</dimen>
 
     <dimen name="spacer_32">32dp</dimen>
     <dimen name="spacer_24">24dp</dimen>

@@ -11,3 +11,12 @@ fun OffersData.toOffers(): Offers {
         button = this.button?.toButton()
     )
 }
+
+fun Offers.toOffersData(): OffersData {
+    return OffersData(
+        id = this.id ?: "",
+        title = this.title,
+        link = this.link,
+        button = this.button?.toButtonData()
+    )
+}

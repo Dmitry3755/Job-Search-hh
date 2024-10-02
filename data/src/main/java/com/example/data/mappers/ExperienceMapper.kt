@@ -9,3 +9,10 @@ fun ExperienceData.toExperience() : Experience {
         text = this.text
     )
 }
+
+fun Experience.toExperienceData() : ExperienceData {
+    return ExperienceData(
+        previewText = this.previewText,
+        text = this.text
+    )
+}

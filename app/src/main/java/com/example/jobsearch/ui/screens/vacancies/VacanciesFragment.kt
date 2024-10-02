@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -16,13 +15,17 @@ import com.example.jobsearch.databinding.ViewRecyclerViewFooterBinding
 import com.example.jobsearch.databinding.ViewRecyclerViewHeaderWithoutOffersBinding
 import com.example.jobsearch.ui.base.BaseFragment
 import com.example.jobsearch.ui.nav_view.NavigationViewConfig
-import com.example.jobsearch.ui.screens.favorites.vacancies_rv.FavoriteVacanciesAdapterRV
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.VacanciesAdapterRV
-import com.example.jobsearch.ui.screens.view_models.DataViewModel
-import com.example.jobsearch.ui.screens.view_models.VacanciesViewModel
+import com.example.jobsearch.view_models.DataViewModel
+import com.example.jobsearch.view_models.VacanciesViewModel
+import com.example.jobsearch.utils.NetworkMonitor
 import com.example.jobsearch.utils.decoration.BottomSpaceDecoration
+import javax.inject.Inject
 
 class VacanciesFragment : BaseFragment() {
+
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
 
     private val dataViewModel by viewModels<DataViewModel> {
         daggerViewModelFactory
@@ -37,7 +40,10 @@ class VacanciesFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        dataViewModel.loadData()
+        when (networkMonitor.networkState.value!!) {
+            true -> dataViewModel.loadNetworkData()
+            false -> dataViewModel.loadLocalData()
+        }
     }
 
     override fun onCreateView(
@@ -62,6 +68,7 @@ class VacanciesFragment : BaseFragment() {
             initializeVacanciesRV()
             dataViewModel.data.observe(viewLifecycleOwner) {
                 vacanciesInit(it)
+                dataViewModel.insertLocalData()
                 NavigationViewConfig.setBadge(
                     requireContext(),
                     vacanciesViewModel.favoritesVacancies.value!!.size

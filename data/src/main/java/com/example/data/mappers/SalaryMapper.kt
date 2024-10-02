@@ -9,3 +9,10 @@ fun SalaryData.toSalary(): Salary {
         short = this.short
     )
 }
+
+fun Salary.toSalaryData(): SalaryData {
+    return SalaryData(
+        full = this.full,
+        short = this.short
+    )
+}

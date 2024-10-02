@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entities.Vacancies
 import com.example.jobsearch.R
+import com.example.jobsearch.utils.PeopleUtils
+import com.example.jobsearch.utils.VacancyUtils
 
 class FavoriteVacanciesAdapterRV(private val vacancies: List<Vacancies>) :
     RecyclerView.Adapter<FavoriteVacanciesAdapterRV.ViewHolder>() {
@@ -34,29 +36,20 @@ class FavoriteVacanciesAdapterRV(private val vacancies: List<Vacancies>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.vacanciesWatchingItNowTextView.text = lookingPeopleCount(position)
-        holder.vacanciesPostTextView.text = vacancies[position].title
-        holder.vacanciesSalaryTextView.text =
-            vacancies[position].salary.short ?: vacancies[position].salary.full
-        holder.vacanciesCountryTextView.text = vacancies[position].address!!.town ?: ""
-        holder.vacanciesCompanyTextView.text = vacancies[position].company
-        holder.vacanciesExperienceTextView.text =
-            vacancies[position].experience!!.previewText ?: ""
-        holder.vacanciesDataTextView.text =
-            holder.context.getString(R.string.vacancies_date_publication) + " " + vacancies[position].publishedDate
-        if (vacancies[position].isFavorite!!) {
-            holder.vacanciesFavoriteImageView.setImageResource(R.drawable.ic_favourites_true)
-
+        val vacancy = vacancies[position]
+        holder.apply {
+            vacanciesWatchingItNowTextView.text =
+                PeopleUtils.formatWatchingPeopleCount(vacancy.lookingNumber)
+            vacanciesPostTextView.text = vacancy.title
+            vacanciesSalaryTextView.text =
+                VacancyUtils.formatSalary(vacancy.salary.short, vacancy.salary.full)
+            vacanciesCountryTextView.text = vacancy.address?.town ?: ""
+            vacanciesCompanyTextView.text = vacancy.company
+            vacanciesExperienceTextView.text = VacancyUtils.formatExperience(vacancy.experience)
+            vacanciesDataTextView.text = VacancyUtils.formatDate(context, vacancy.publishedDate)
+            vacanciesFavoriteImageView.setImageResource(VacancyUtils.getFavoriteIconResource(vacancy.isFavorite))
         }
     }
 
     override fun getItemCount() = vacancies.size
-
-    private fun lookingPeopleCount(position: Int): String {
-        return if (vacancies[position].lookingNumber != null) {
-            "Сейчас просматривает " + vacancies[position].lookingNumber + " человек"
-        } else {
-            ""
-        }
-    }
 }

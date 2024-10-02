@@ -13,11 +13,17 @@ import com.example.jobsearch.databinding.FmtFavoritesBinding
 import com.example.jobsearch.ui.base.BaseFragment
 import com.example.jobsearch.ui.nav_view.NavigationViewConfig
 import com.example.jobsearch.ui.screens.favorites.vacancies_rv.FavoriteVacanciesAdapterRV
-import com.example.jobsearch.ui.screens.view_models.DataViewModel
-import com.example.jobsearch.ui.screens.view_models.VacanciesViewModel
+import com.example.jobsearch.utils.NetworkMonitor
+import com.example.jobsearch.view_models.DataViewModel
+import com.example.jobsearch.view_models.VacanciesViewModel
+import com.example.jobsearch.utils.VacancyUtils
 import com.example.jobsearch.utils.decoration.BottomSpaceDecoration
+import javax.inject.Inject
 
 class FavoritesFragment : BaseFragment() {
+
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
 
     private val vacanciesViewModel by viewModels<VacanciesViewModel> {
         daggerViewModelFactory
@@ -29,7 +35,10 @@ class FavoritesFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        dataViewModel.loadData()
+        when (networkMonitor.networkState.value!!) {
+            true -> dataViewModel.loadNetworkData()
+            false -> dataViewModel.loadLocalData()
+        }
     }
 
     override fun onCreateView(
@@ -58,6 +67,10 @@ class FavoritesFragment : BaseFragment() {
                 )
                 binding.favoritesVacanciesRecyclerView.adapter =
                     FavoriteVacanciesAdapterRV(vacanciesViewModel.favoritesVacancies.value!!)
+                bind.countVacanciesTextView.text =
+                    "${vacanciesViewModel.favoritesVacancies.value!!.size} ${
+                        VacancyUtils.formatVacanciesCount(vacanciesViewModel.favoritesVacancies.value!!.size)
+                    }"
             }
         }
     }

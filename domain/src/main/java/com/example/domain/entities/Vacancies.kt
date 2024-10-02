@@ -5,7 +5,7 @@ import com.example.domain.entities.auxiliary_entities.Experience
 import com.example.domain.entities.auxiliary_entities.Salary
 
 data class Vacancies(
-    val id: String?,
+    val id: String,
     val lookingNumber: Int?,
     val title: String?,
     val address: Address?,

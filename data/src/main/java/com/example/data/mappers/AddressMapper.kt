@@ -9,5 +9,12 @@ fun AddressData.toAddress(): Address {
         street = this.street,
         house = this.house
     )
+}
 
+fun Address.toAddressData(): AddressData {
+    return AddressData(
+        town = this.town,
+        street = this.street,
+        house = this.house
+    )
 }

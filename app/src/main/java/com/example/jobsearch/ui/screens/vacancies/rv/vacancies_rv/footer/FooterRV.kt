@@ -9,7 +9,8 @@ import com.example.domain.entities.Vacancies
 import com.example.jobsearch.R
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.VacanciesAdapterRV
 import com.example.jobsearch.ui.screens.vacancies.rv.vacancies_rv.VacancyDiffCallback
-import com.example.jobsearch.ui.screens.view_models.VacanciesViewModel
+import com.example.jobsearch.view_models.VacanciesViewModel
+import com.example.jobsearch.utils.VacancyUtils
 
 class FooterRV(view: View) : RecyclerView.ViewHolder(view) {
     private lateinit var vacanciesALotOfButton: Button
@@ -30,7 +31,7 @@ class FooterRV(view: View) : RecyclerView.ViewHolder(view) {
         holder.apply {
             vacanciesALotOfButton.text =
                 "${context.getString(R.string.vacancies_another)} ${vacanciesViewModel.vacancies.value!!.size - 3} ${
-                    context.getString(R.string.vacancies_vacancies)
+                    VacancyUtils.formatVacanciesCount(vacanciesViewModel.vacancies.value!!.size - 3)
                 }"
             (itemView.layoutParams as RecyclerView.LayoutParams).apply {
                 bottomMargin = 150

@@ -33,4 +33,19 @@
         android:name="com.example.jobsearch.ui.screens.favorites.FavoritesFragment"
         android:label="fmt_favorites"
         tools:layout="@layout/fmt_favorites" />
+    <fragment
+        android:id="@+id/responses"
+        android:name="com.example.jobsearch.ui.screens.responses.ResponsesFragment"
+        android:label="fmt_responses"
+        tools:layout="@layout/fmt_responses" />
+    <fragment
+        android:id="@+id/messages"
+        android:name="com.example.jobsearch.ui.screens.messages.MessagesFragment"
+        android:label="fmt_messages"
+        tools:layout="@layout/fmt_messages" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.jobsearch.ui.screens.profile.ProfileFragment"
+        android:label="fmt_profile"
+        tools:layout="@layout/fmt_profile" />
 </navigation>
